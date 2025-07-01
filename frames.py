@@ -9,7 +9,7 @@ output_frames_folder = 'frames\\por_analizar'
 
 # Definición de las coordenadas del recorte
 x1, y1 = 0, 0
-x2, y2 = 260, 220
+x2, y2 = 260, 180
 
 frame_interval_seconds = 3
 
