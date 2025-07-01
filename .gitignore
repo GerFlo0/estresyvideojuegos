@@ -1,0 +1,15 @@
+env
+
+frames/analizado/*
+frames/por_analizar/*
+videos/analizado/*
+videos/por_analizar/*
+videos/webcam/*
+csvs
+
+!frames/analizado/.gitkeep
+!frames/por_analizar/.gitkeep
+!videos/analizado/.gitkeep
+!videos/por_analizar/.gitkeep
+!videos/webcam/.gitkeep
+!csvs/.gitkeep

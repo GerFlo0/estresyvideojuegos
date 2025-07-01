@@ -1,0 +1,54 @@
+import os
+import cv2
+import pandas as pd
+from deepface import DeepFace
+from tqdm import tqdm
+
+root_input_folder = "frames\\por_analizar"
+output_folder = "csvs"
+fps = 1
+
+os.makedirs(output_folder, exist_ok=True)
+
+# Recorrer todas las subcarpetas
+for subfolder in os.listdir(root_input_folder):
+    input_folder = os.path.join(root_input_folder, subfolder)
+    if not os.path.isdir(input_folder):
+        continue  # Ignorar archivos que no son carpetas
+
+    csv_filename = f"{subfolder}.csv"
+    image_files = sorted([f for f in os.listdir(input_folder) if f.lower().endswith('.jpg')])
+    results = []
+
+    print(f"\n🔍 Analizando carpeta: {subfolder} ({len(image_files)} imágenes)")
+
+    for i, filename in tqdm(enumerate(image_files), total=len(image_files), desc=f"{subfolder}"):
+        img_path = os.path.join(input_folder, filename)
+
+        try:
+            img = cv2.imread(img_path)
+
+            analysis = DeepFace.analyze(img, actions=['emotion'], enforce_detection=False)
+
+            emotion_data = analysis[0]['emotion']
+            dominant = analysis[0]['dominant_emotion']
+            timestamp_sec = round(i / fps, 2)
+
+            row = {
+                "archivo": filename,
+                "timestamp_segundos": timestamp_sec,
+                "emocion_dominante": dominant
+            }
+            row.update(emotion_data)
+
+            results.append(row)
+
+        except Exception as e:
+            print(f"[ERROR] {filename}: {e}")
+
+    # Guardar CSV por subcarpeta
+    output_path = os.path.join(output_folder, csv_filename)
+    df = pd.DataFrame(results)
+    df.to_csv(output_path, index=False)
+
+    print(f"CSV guardado: {output_path}")
