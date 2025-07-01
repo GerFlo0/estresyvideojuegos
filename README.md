@@ -13,3 +13,6 @@ python3.0 venv env
 //instalar requerimientos
 
 pip install -r requirements.txt
+
+
+Configurar area de la webcam en frames.py
