@@ -5,7 +5,7 @@ frames/por_analizar/*
 videos/analizado/*
 videos/por_analizar/*
 videos/webcam/*
-csvs
+csvs/*
 
 !frames/analizado/.gitkeep
 !frames/por_analizar/.gitkeep
