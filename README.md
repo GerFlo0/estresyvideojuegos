@@ -17,4 +17,4 @@ python -m pip install --upgrade pip
 pip install -r requirements.txt
 
 
-Configurar area de la webcam en frames.py
+//Configurar area de la webcam en frames.py
