@@ -20,7 +20,7 @@ for subfolder in os.listdir(root_input_folder):
     image_files = sorted([f for f in os.listdir(input_folder) if f.lower().endswith('.jpg')])
     results = []
 
-    print(f"\n🔍 Analizando carpeta: {subfolder} ({len(image_files)} imágenes)")
+    print(f"\nAnalizando carpeta: {subfolder} ({len(image_files)} imágenes)")
 
     for i, filename in tqdm(enumerate(image_files), total=len(image_files), desc=f"{subfolder}"):
         img_path = os.path.join(input_folder, filename)
