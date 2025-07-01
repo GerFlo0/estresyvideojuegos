@@ -7,6 +7,7 @@ input_folder = 'videos\\por_analizar'
 output_video_folder = 'videos\\webcam'
 output_frames_folder = 'frames\\por_analizar'
 
+# Definición de las coordenadas del recorte
 x1, y1 = 0, 0
 x2, y2 = 260, 220
 
