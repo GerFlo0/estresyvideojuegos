@@ -1,14 +1,16 @@
-comandos para instalar
 
-//actualizar pip
 
-python -m pip install --upgrade pip
+REQUIERE PYTHON 3.9
 
 //crear y activar entorno virtual
 
 python3.0 venv env
 
 .\env\Scripts\activate
+
+//actualizar pip
+
+python -m pip install --upgrade pip
 
 //instalar requerimientos
 
