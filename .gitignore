@@ -12,4 +12,4 @@ csvs/*
 !videos/analizado/.gitkeep
 !videos/por_analizar/.gitkeep
 !videos/webcam/.gitkeep
-!csvs/.gitkeep
+csvs/.gitkeep
