@@ -20,6 +20,7 @@ pip install -r requirements.txt
 //Configurar area de la webcam en frames.py
 
 ------------------------------------------------------EXPLICACION------------------------------------------------------
+
 desviacionestandar.py calcula la desviacion estandar promedio de los datos por juego asi como la desviacion entre los jugadores.
 
 emotions.py realza el analisis de las emociones utilizando mini-xception en deepface
