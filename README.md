@@ -4,7 +4,7 @@ REQUIERE PYTHON 3.9
 
 //crear y activar entorno virtual
 
-python3.9 venv env
+python3.9 -m venv env
 
 .\env\Scripts\activate
 
