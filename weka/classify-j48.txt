@@ -1,0 +1,145 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.J48 -C 0.25 -M 2
+Relation:     csv_weka-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    1694
+Attributes:   9
+              game
+              score
+              angry
+              disgust
+              fear
+              happy
+              sad
+              surprise
+              neutral
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+J48 pruned tree
+------------------
+
+score <= 0
+|   happy <= 30.907789
+|   |   disgust <= 2.497916
+|   |   |   sad <= 37.902235
+|   |   |   |   fear <= 4.756673
+|   |   |   |   |   surprise <= 0.097827
+|   |   |   |   |   |   disgust <= 0.0003
+|   |   |   |   |   |   |   disgust <= 0.000094
+|   |   |   |   |   |   |   |   disgust <= 0.000032
+|   |   |   |   |   |   |   |   |   neutral <= 99.737364: Mine (79.0/20.0)
+|   |   |   |   |   |   |   |   |   neutral > 99.737364
+|   |   |   |   |   |   |   |   |   |   happy <= 0.002811: Mine (5.0/1.0)
+|   |   |   |   |   |   |   |   |   |   happy > 0.002811: LOL (8.0)
+|   |   |   |   |   |   |   |   disgust > 0.000032: LOL (5.0/1.0)
+|   |   |   |   |   |   |   disgust > 0.000094: Mine (7.0)
+|   |   |   |   |   |   disgust > 0.0003
+|   |   |   |   |   |   |   happy <= 0.013984: LOL (9.0)
+|   |   |   |   |   |   |   happy > 0.013984
+|   |   |   |   |   |   |   |   sad <= 9.586204: LOL (2.0)
+|   |   |   |   |   |   |   |   sad > 9.586204: Mine (5.0)
+|   |   |   |   |   surprise > 0.097827
+|   |   |   |   |   |   sad <= 0.411968
+|   |   |   |   |   |   |   sad <= 0.064113
+|   |   |   |   |   |   |   |   happy <= 1.600906: Mine (3.0/1.0)
+|   |   |   |   |   |   |   |   happy > 1.600906: LOL (7.0)
+|   |   |   |   |   |   |   sad > 0.064113: Mine (5.0/1.0)
+|   |   |   |   |   |   sad > 0.411968: LOL (10.0)
+|   |   |   |   fear > 4.756673: Mine (168.0/40.0)
+|   |   |   sad > 37.902235: Mine (133.0/21.0)
+|   |   disgust > 2.497916
+|   |   |   angry <= 22.112419: LOL (8.0)
+|   |   |   angry > 22.112419
+|   |   |   |   fear <= 3.28261: LOL (5.0)
+|   |   |   |   fear > 3.28261
+|   |   |   |   |   happy <= 0.665076: Mine (9.0)
+|   |   |   |   |   happy > 0.665076: LOL (2.0)
+|   happy > 30.907789
+|   |   surprise <= 0.512746: LOL (19.0/2.0)
+|   |   surprise > 0.512746
+|   |   |   happy <= 80.027133: Mine (4.0)
+|   |   |   happy > 80.027133: LOL (2.0)
+score > 0
+|   happy <= 0.041027
+|   |   neutral <= 34.196858
+|   |   |   happy <= 0.000509
+|   |   |   |   fear <= 2.251561: LOL (73.0/12.0)
+|   |   |   |   fear > 2.251561
+|   |   |   |   |   score <= 32
+|   |   |   |   |   |   disgust <= 0.900483
+|   |   |   |   |   |   |   surprise <= 0.047331
+|   |   |   |   |   |   |   |   angry <= 3.722689
+|   |   |   |   |   |   |   |   |   fear <= 45.047
+|   |   |   |   |   |   |   |   |   |   surprise <= 0.000192: LOL (6.0)
+|   |   |   |   |   |   |   |   |   |   surprise > 0.000192: Mine (4.0/1.0)
+|   |   |   |   |   |   |   |   |   fear > 45.047: Mine (4.0)
+|   |   |   |   |   |   |   |   angry > 3.722689: Mine (16.0)
+|   |   |   |   |   |   |   surprise > 0.047331: LOL (6.0/1.0)
+|   |   |   |   |   |   disgust > 0.900483: LOL (4.0)
+|   |   |   |   |   score > 32: LOL (8.0/1.0)
+|   |   |   happy > 0.000509
+|   |   |   |   angry <= 7.397718
+|   |   |   |   |   neutral <= 0.349436: LOL (11.0)
+|   |   |   |   |   neutral > 0.349436
+|   |   |   |   |   |   fear <= 76.170227
+|   |   |   |   |   |   |   score <= 10: Mine (55.0/24.0)
+|   |   |   |   |   |   |   score > 10: LOL (48.0/9.0)
+|   |   |   |   |   |   fear > 76.170227: Mine (16.0/1.0)
+|   |   |   |   angry > 7.397718
+|   |   |   |   |   fear <= 32.477888
+|   |   |   |   |   |   disgust <= 0.009742: Mine (98.0/26.0)
+|   |   |   |   |   |   disgust > 0.009742
+|   |   |   |   |   |   |   neutral <= 0.483403: LOL (9.0)
+|   |   |   |   |   |   |   neutral > 0.483403
+|   |   |   |   |   |   |   |   surprise <= 0.003631: LOL (16.0/3.0)
+|   |   |   |   |   |   |   |   surprise > 0.003631
+|   |   |   |   |   |   |   |   |   disgust <= 0.16866: Mine (18.0/3.0)
+|   |   |   |   |   |   |   |   |   disgust > 0.16866
+|   |   |   |   |   |   |   |   |   |   score <= 77: LOL (21.0/7.0)
+|   |   |   |   |   |   |   |   |   |   score > 77: Mine (3.0)
+|   |   |   |   |   fear > 32.477888
+|   |   |   |   |   |   disgust <= 0.009418
+|   |   |   |   |   |   |   disgust <= 0.004807: Mine (7.0/1.0)
+|   |   |   |   |   |   |   disgust > 0.004807: LOL (2.0)
+|   |   |   |   |   |   disgust > 0.009418: Mine (20.0)
+|   |   neutral > 34.196858
+|   |   |   score <= 27: Mine (186.0/44.0)
+|   |   |   score > 27
+|   |   |   |   score <= 48: LOL (22.0/6.0)
+|   |   |   |   score > 48: Mine (29.0/8.0)
+|   happy > 0.041027: LOL (517.0/213.0)
+
+Number of Leaves  : 	46
+
+Size of the tree : 	91
+
+
+Time taken to build model: 0.06 seconds
+
+=== Stratified cross-validation ===
+=== Summary ===
+
+Correctly Classified Instances        1074               63.4002 %
+Incorrectly Classified Instances       620               36.5998 %
+Kappa statistic                          0.2639
+Mean absolute error                      0.4318
+Root mean squared error                  0.4993
+Relative absolute error                 87.3445 %
+Root relative squared error            100.421  %
+Total Number of Instances             1694     
+
+=== Detailed Accuracy By Class ===
+
+                 TP Rate  FP Rate  Precision  Recall   F-Measure  MCC      ROC Area  PRC Area  Class
+                 0.621    0.355    0.585      0.621    0.603      0.264    0.638     0.557     LOL
+                 0.645    0.379    0.678      0.645    0.661      0.264    0.638     0.653     Mine
+Weighted Avg.    0.634    0.369    0.637      0.634    0.635      0.264    0.638     0.610     
+
+=== Confusion Matrix ===
+
+   a   b   <-- classified as
+ 470 287 |   a = LOL
+ 333 604 |   b = Mine
+

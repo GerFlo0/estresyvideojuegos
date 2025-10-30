@@ -1,0 +1,511 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 4
+Relation:     csv_weka-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    1694
+Attributes:   9
+              game
+              score
+              angry
+              disgust
+              fear
+              happy
+              sad
+              surprise
+              neutral
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+disgust <= 0 : 
+|   game=LOL <= 0.5 : 
+|   |   surprise <= 0 : LM1 (90/27.997%)
+|   |   surprise >  0 : 
+|   |   |   happy <= 0.442 : LM2 (215/76.901%)
+|   |   |   happy >  0.442 : LM3 (93/37.719%)
+|   game=LOL >  0.5 : LM4 (291/89.414%)
+disgust >  0 : 
+|   happy <= 0.008 : 
+|   |   surprise <= 0.01 : 
+|   |   |   neutral <= 23.798 : 
+|   |   |   |   neutral <= 11.073 : 
+|   |   |   |   |   happy <= 0.002 : 
+|   |   |   |   |   |   disgust <= 0.038 : LM5 (72/22.3%)
+|   |   |   |   |   |   disgust >  0.038 : LM6 (35/66.892%)
+|   |   |   |   |   happy >  0.002 : LM7 (43/96.535%)
+|   |   |   |   neutral >  11.073 : LM8 (41/112.45%)
+|   |   |   neutral >  23.798 : LM9 (54/49.372%)
+|   |   surprise >  0.01 : 
+|   |   |   disgust <= 0.002 : LM10 (17/45.571%)
+|   |   |   disgust >  0.002 : LM11 (63/10.555%)
+|   happy >  0.008 : 
+|   |   happy <= 0.432 : 
+|   |   |   surprise <= 0.002 : 
+|   |   |   |   sad <= 28.657 : 
+|   |   |   |   |   happy <= 0.033 : LM12 (20/30.154%)
+|   |   |   |   |   happy >  0.033 : 
+|   |   |   |   |   |   fear <= 90.037 : 
+|   |   |   |   |   |   |   game=LOL <= 0.5 : LM13 (7/7.607%)
+|   |   |   |   |   |   |   game=LOL >  0.5 : 
+|   |   |   |   |   |   |   |   sad <= 18.234 : LM14 (5/27.714%)
+|   |   |   |   |   |   |   |   sad >  18.234 : 
+|   |   |   |   |   |   |   |   |   happy <= 0.07 : LM15 (2/0%)
+|   |   |   |   |   |   |   |   |   happy >  0.07 : LM16 (4/12.697%)
+|   |   |   |   |   |   fear >  90.037 : LM17 (5/86.466%)
+|   |   |   |   sad >  28.657 : 
+|   |   |   |   |   surprise <= 0 : 
+|   |   |   |   |   |   fear <= 3.201 : LM18 (11/29.088%)
+|   |   |   |   |   |   fear >  3.201 : LM19 (5/75.876%)
+|   |   |   |   |   surprise >  0 : LM20 (58/26.42%)
+|   |   |   surprise >  0.002 : 
+|   |   |   |   happy <= 0.128 : 
+|   |   |   |   |   neutral <= 2.553 : 
+|   |   |   |   |   |   surprise <= 0.08 : LM21 (26/113.42%)
+|   |   |   |   |   |   surprise >  0.08 : LM22 (19/112.107%)
+|   |   |   |   |   neutral >  2.553 : LM23 (177/116.712%)
+|   |   |   |   happy >  0.128 : 
+|   |   |   |   |   happy <= 0.169 : 
+|   |   |   |   |   |   angry <= 5.411 : LM24 (6/109.951%)
+|   |   |   |   |   |   angry >  5.411 : LM25 (16/101.232%)
+|   |   |   |   |   happy >  0.169 : 
+|   |   |   |   |   |   angry <= 3.142 : 
+|   |   |   |   |   |   |   angry <= 0.624 : LM26 (5/14.583%)
+|   |   |   |   |   |   |   angry >  0.624 : LM27 (17/127.534%)
+|   |   |   |   |   |   angry >  3.142 : 
+|   |   |   |   |   |   |   happy <= 0.286 : 
+|   |   |   |   |   |   |   |   happy <= 0.219 : 
+|   |   |   |   |   |   |   |   |   happy <= 0.198 : LM28 (8/17.724%)
+|   |   |   |   |   |   |   |   |   happy >  0.198 : 
+|   |   |   |   |   |   |   |   |   |   neutral <= 70.986 : 
+|   |   |   |   |   |   |   |   |   |   |   angry <= 38.092 : LM29 (5/44.434%)
+|   |   |   |   |   |   |   |   |   |   |   angry >  38.092 : LM30 (2/31.167%)
+|   |   |   |   |   |   |   |   |   |   neutral >  70.986 : LM31 (2/1.64%)
+|   |   |   |   |   |   |   |   happy >  0.219 : LM32 (11/21.887%)
+|   |   |   |   |   |   |   happy >  0.286 : LM33 (32/141.004%)
+|   |   happy >  0.432 : 
+|   |   |   surprise <= 0.285 : LM34 (154/107.055%)
+|   |   |   surprise >  0.285 : 
+|   |   |   |   disgust <= 0.107 : LM35 (49/46.645%)
+|   |   |   |   disgust >  0.107 : LM36 (34/96.825%)
+
+LM num: 1
+score = 
+	0.5558 * game=LOL 
+	- 23461.2032 * disgust 
+	+ 0.0084 * fear 
+	+ 3.1217 * happy 
+	+ 3.1278 * sad 
+	+ 3.1342 * surprise 
+	+ 3.1249 * neutral 
+	- 307.6641
+
+LM num: 2
+score = 
+	0.5558 * game=LOL 
+	- 247924.7063 * disgust 
+	+ 0.0084 * fear 
+	+ 3.121 * happy 
+	+ 3.0556 * sad 
+	+ 3.1342 * surprise 
+	+ 3.1249 * neutral 
+	- 297.0208
+
+LM num: 3
+score = 
+	0.5558 * game=LOL 
+	- 36314.8969 * disgust 
+	+ 0.0084 * fear 
+	+ 3.1068 * happy 
+	+ 3.1278 * sad 
+	+ 3.1342 * surprise 
+	+ 3.1249 * neutral 
+	- 308.2389
+
+LM num: 4
+score = 
+	0.6893 * game=LOL 
+	+ 4.2257 * disgust 
+	+ 0.423 * fear 
+	+ 4.236 * happy 
+	+ 4.3635 * sad 
+	+ 4.2298 * surprise 
+	+ 4.2191 * neutral 
+	- 412.4961
+
+LM num: 5
+score = 
+	2.2151 * game=LOL 
+	- 0.0268 * disgust 
+	+ 0.0189 * fear 
+	+ 0.1042 * happy 
+	- 0.0079 * sad 
+	- 152.9161 * surprise 
+	- 0.1275 * neutral 
+	+ 6.3557
+
+LM num: 6
+score = 
+	2.2151 * game=LOL 
+	- 0.0466 * disgust 
+	+ 0.2054 * fear 
+	+ 0.1042 * happy 
+	- 0.0138 * sad 
+	- 266.0685 * surprise 
+	- 0.2078 * neutral 
+	+ 9.2918
+
+LM num: 7
+score = 
+	2.2151 * game=LOL 
+	+ 0.271 * fear 
+	- 2523.5748 * happy 
+	+ 1786.7588 * surprise 
+	- 0.019 * neutral 
+	+ 16.758
+
+LM num: 8
+score = 
+	3.4882 * game=LOL 
+	- 1.126 * fear 
+	+ 0.1305 * happy 
+	- 0.0234 * surprise 
+	+ 3.3928 * neutral 
+	- 31.0536
+
+LM num: 9
+score = 
+	3.0813 * game=LOL 
+	+ 0.0189 * fear 
+	+ 0.0811 * happy 
+	- 0.1973 * sad 
+	+ 0.0007 * surprise 
+	- 0.019 * neutral 
+	+ 16.5507
+
+LM num: 10
+score = 
+	1.4954 * game=LOL 
+	+ 0.626 * angry 
+	+ 0.1288 * fear 
+	+ 0.0067 * happy 
+	+ 0.1177 * surprise 
+	- 0.019 * neutral 
+	- 10.1344
+
+LM num: 11
+score = 
+	1.4954 * game=LOL 
+	+ 0.0167 * angry 
+	+ 0.0189 * fear 
+	- 194.945 * happy 
+	+ 0.0473 * sad 
+	+ 0.0007 * surprise 
+	- 0.019 * neutral 
+	+ 3.7856
+
+LM num: 12
+score = 
+	13.3191 * game=LOL 
+	+ 0.1976 * angry 
+	+ 0.1926 * disgust 
+	+ 0.0723 * fear 
+	+ 0.0272 * happy 
+	+ 5.44 * sad 
+	- 0.0734 * surprise 
+	- 0.0979 * neutral 
+	+ 26.4889
+
+LM num: 13
+score = 
+	34.548 * game=LOL 
+	- 0.3829 * angry 
+	- 0.0885 * disgust 
+	+ 0.0723 * fear 
+	- 30.5885 * happy 
+	+ 6.133 * sad 
+	- 0.0734 * surprise 
+	- 0.3242 * neutral 
+	+ 32.3534
+
+LM num: 14
+score = 
+	32.8473 * game=LOL 
+	- 0.3574 * angry 
+	- 0.0885 * disgust 
+	+ 0.0723 * fear 
+	- 30.5885 * happy 
+	+ 6.2699 * sad 
+	- 0.0734 * surprise 
+	- 0.3022 * neutral 
+	+ 32.64
+
+LM num: 15
+score = 
+	32.8473 * game=LOL 
+	- 0.3794 * angry 
+	- 0.0885 * disgust 
+	+ 0.0723 * fear 
+	- 30.5885 * happy 
+	+ 6.2609 * sad 
+	- 0.0734 * surprise 
+	- 0.3022 * neutral 
+	+ 34.7081
+
+LM num: 16
+score = 
+	32.8473 * game=LOL 
+	- 0.384 * angry 
+	- 0.0885 * disgust 
+	+ 0.0723 * fear 
+	- 30.5885 * happy 
+	+ 6.2609 * sad 
+	- 0.0734 * surprise 
+	- 0.3022 * neutral 
+	+ 34.6999
+
+LM num: 17
+score = 
+	30.5434 * game=LOL 
+	- 0.3586 * angry 
+	- 0.0885 * disgust 
+	+ 0.0723 * fear 
+	- 50.4886 * happy 
+	+ 5.802 * sad 
+	- 0.0734 * surprise 
+	- 0.3216 * neutral 
+	+ 48.0331
+
+LM num: 18
+score = 
+	8.0665 * game=LOL 
+	- 0.1902 * angry 
+	+ 0.0145 * disgust 
+	+ 0.3711 * fear 
+	+ 0.0272 * happy 
+	+ 5.802 * sad 
+	- 0.0464 * surprise 
+	- 0.4337 * neutral 
+	+ 23.7116
+
+LM num: 19
+score = 
+	8.0665 * game=LOL 
+	+ 0.7904 * angry 
+	+ 0.0145 * disgust 
+	+ 0.4869 * fear 
+	+ 0.0272 * happy 
+	+ 5.802 * sad 
+	- 0.0464 * surprise 
+	- 0.4425 * neutral 
+	+ 25.1551
+
+LM num: 20
+score = 
+	8.1811 * game=LOL 
+	+ 0.3794 * angry 
+	+ 0.0145 * disgust 
+	+ 0.0354 * fear 
+	+ 0.0272 * happy 
+	+ 5.802 * sad 
+	- 0.0464 * surprise 
+	- 0.138 * neutral 
+	+ 8.3925
+
+LM num: 21
+score = 
+	0.6145 * game=LOL 
+	+ 0.0056 * disgust 
+	+ 0.1429 * fear 
+	+ 0.06 * happy 
+	+ 5.1361 * sad 
+	- 0.1424 * surprise 
+	- 0.0901 * neutral 
+	+ 45.2694
+
+LM num: 22
+score = 
+	0.6145 * game=LOL 
+	+ 0.0056 * disgust 
+	+ 0.1429 * fear 
+	+ 0.06 * happy 
+	+ 5.1538 * sad 
+	- 0.1824 * surprise 
+	- 0.0901 * neutral 
+	+ 27.1276
+
+LM num: 23
+score = 
+	0.6145 * game=LOL 
+	+ 0.0056 * disgust 
+	+ 0.0904 * fear 
+	+ 0.0344 * happy 
+	+ 5.0501 * sad 
+	+ 0.0259 * surprise 
+	- 0.0901 * neutral 
+	+ 25.2084
+
+LM num: 24
+score = 
+	0.6145 * game=LOL 
+	+ 0.5045 * angry 
+	+ 0.0056 * disgust 
+	+ 0.0876 * fear 
+	+ 0.0301 * happy 
+	+ 7.8306 * sad 
+	+ 0.0238 * surprise 
+	- 1.5062 * neutral 
+	+ 36.9845
+
+LM num: 25
+score = 
+	0.6145 * game=LOL 
+	+ 0.3418 * angry 
+	+ 0.0056 * disgust 
+	+ 0.0876 * fear 
+	+ 0.0301 * happy 
+	+ 7.8306 * sad 
+	+ 0.0238 * surprise 
+	- 1.5062 * neutral 
+	+ 47.3309
+
+LM num: 26
+score = 
+	0.6145 * game=LOL 
+	- 5.3505 * angry 
+	- 158.477 * disgust 
+	+ 0.2644 * fear 
+	+ 0.0301 * happy 
+	+ 44.582 * sad 
+	- 22.8943 * surprise 
+	- 2.0715 * neutral 
+	+ 66.305
+
+LM num: 27
+score = 
+	0.6145 * game=LOL 
+	- 3.3441 * angry 
+	- 99.1004 * disgust 
+	+ 0.3136 * fear 
+	+ 0.0301 * happy 
+	+ 44.582 * sad 
+	- 24.4011 * surprise 
+	- 1.9577 * neutral 
+	+ 51.4919
+
+LM num: 28
+score = 
+	0.6145 * game=LOL 
+	- 0.1096 * angry 
+	+ 0.143 * disgust 
+	+ 0.4361 * fear 
+	+ 247.4614 * happy 
+	+ 57.0925 * sad 
+	+ 0.0238 * surprise 
+	- 1.2531 * neutral 
+	- 30.9477
+
+LM num: 29
+score = 
+	0.6145 * game=LOL 
+	- 0.1933 * angry 
+	+ 0.143 * disgust 
+	+ 0.4361 * fear 
+	+ 237.1517 * happy 
+	+ 57.0925 * sad 
+	+ 0.0238 * surprise 
+	- 1.3002 * neutral 
+	- 21.6471
+
+LM num: 30
+score = 
+	0.6145 * game=LOL 
+	- 0.1973 * angry 
+	+ 0.143 * disgust 
+	+ 0.4361 * fear 
+	+ 237.1517 * happy 
+	+ 57.0925 * sad 
+	+ 0.0238 * surprise 
+	- 1.3002 * neutral 
+	- 21.7848
+
+LM num: 31
+score = 
+	0.6145 * game=LOL 
+	- 0.1896 * angry 
+	+ 0.143 * disgust 
+	+ 0.4361 * fear 
+	+ 237.1517 * happy 
+	+ 57.0925 * sad 
+	+ 0.0238 * surprise 
+	- 1.3147 * neutral 
+	- 22.1539
+
+LM num: 32
+score = 
+	0.6145 * game=LOL 
+	+ 0.1912 * disgust 
+	+ 0.4361 * fear 
+	+ 38.6673 * happy 
+	+ 57.0925 * sad 
+	+ 0.0238 * surprise 
+	- 1.2029 * neutral 
+	+ 1.8373
+
+LM num: 33
+score = 
+	0.6145 * game=LOL 
+	- 0.0659 * disgust 
+	+ 0.4194 * fear 
+	+ 0.0301 * happy 
+	+ 54.4431 * sad 
+	+ 0.0238 * surprise 
+	- 1.2029 * neutral 
+	+ 24.506
+
+LM num: 34
+score = 
+	0.4772 * game=LOL 
+	+ 0.0977 * fear 
+	+ 0.0109 * happy 
+	+ 0.0108 * sad 
+	+ 0.2792 * surprise 
+	- 0.0385 * neutral 
+	+ 18.922
+
+LM num: 35
+score = 
+	0.4772 * game=LOL 
+	+ 0.3111 * fear 
+	+ 0.0109 * happy 
+	+ 0.0185 * sad 
+	+ 0.0523 * surprise 
+	- 0.0385 * neutral 
+	+ 8.174
+
+LM num: 36
+score = 
+	-10.4987 * game=LOL 
+	+ 0.3638 * fear 
+	+ 0.0109 * happy 
+	+ 0.0185 * sad 
+	+ 0.0523 * surprise 
+	- 0.0385 * neutral 
+	+ 23.2479
+
+Number of Rules : 36
+
+Time taken to build model: 0.09 seconds
+
+=== Cross-validation ===
+=== Summary ===
+
+Correlation coefficient                 -0.0267
+Mean absolute error                   2679.7302
+Root mean squared error              17226.602 
+Relative absolute error              11662.0825 %
+Root relative squared error          56474.3485 %
+Total Number of Instances             1694     
+

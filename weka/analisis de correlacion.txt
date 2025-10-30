@@ -1,0 +1,39 @@
+=== Run information ===
+
+Evaluator:    weka.attributeSelection.CorrelationAttributeEval 
+Search:       weka.attributeSelection.Ranker -T -1.7976931348623157E308 -N -1
+Relation:     csv_weka-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    1694
+Attributes:   9
+              game
+              score
+              angry
+              disgust
+              fear
+              happy
+              sad
+              surprise
+              neutral
+Evaluation mode:    evaluate on all training data
+
+
+
+=== Attribute Selection on all input data ===
+
+Search Method:
+	Attribute ranking.
+
+Attribute Evaluator (supervised, Class (numeric): 2 score):
+	Correlation Ranking Filter
+Ranked attributes:
+ 0.1287    1 game
+ 0.10503   5 fear
+ 0.0975    4 disgust
+ 0.01686   3 angry
+ 0.00796   7 sad
+-0.03045   6 happy
+-0.04984   8 surprise
+-0.08773   9 neutral
+
+Selected attributes: 1,5,4,3,7,6,8,9 : 8
+

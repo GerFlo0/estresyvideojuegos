@@ -1,0 +1,43 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.functions.LinearRegression -S 0 -R 1.0E-8 -num-decimal-places 4
+Relation:     csv_weka-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    1694
+Attributes:   9
+              game
+              score
+              angry
+              disgust
+              fear
+              happy
+              sad
+              surprise
+              neutral
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+
+Linear Regression Model
+
+score =
+
+      8.1657 * game=LOL +
+      0.3922 * disgust +
+      0.1563 * fear +
+      0.0476 * sad +
+     -0.1947 * surprise +
+     10.9278
+
+Time taken to build model: 0.07 seconds
+
+=== Cross-validation ===
+=== Summary ===
+
+Correlation coefficient                  0.1804
+Mean absolute error                     22.2938
+Root mean squared error                 29.996 
+Relative absolute error                 97.0218 %
+Root relative squared error             98.3367 %
+Total Number of Instances             1694     
+

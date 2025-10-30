@@ -1,0 +1,359 @@
+=== Run information ===
+
+Scheme:       weka.classifiers.trees.M5P -M 4.0 -num-decimal-places 4
+Relation:     csv_weka-weka.filters.unsupervised.attribute.Remove-R2,4-weka.filters.unsupervised.attribute.Remove-R1
+Instances:    1694
+Attributes:   8
+              score
+              angry
+              disgust
+              fear
+              happy
+              sad
+              surprise
+              neutral
+Test mode:    10-fold cross-validation
+
+=== Classifier model (full training set) ===
+
+M5 pruned model tree:
+(using smoothed linear models)
+
+disgust <= 0 : LM1 (689/81.393%)
+disgust >  0 : 
+|   happy <= 0.008 : 
+|   |   surprise <= 0.01 : 
+|   |   |   neutral <= 23.798 : 
+|   |   |   |   neutral <= 11.073 : 
+|   |   |   |   |   happy <= 0.002 : 
+|   |   |   |   |   |   disgust <= 0.038 : LM2 (72/22.3%)
+|   |   |   |   |   |   disgust >  0.038 : LM3 (35/66.892%)
+|   |   |   |   |   happy >  0.002 : LM4 (43/96.535%)
+|   |   |   |   neutral >  11.073 : LM5 (41/112.45%)
+|   |   |   neutral >  23.798 : LM6 (54/49.372%)
+|   |   surprise >  0.01 : 
+|   |   |   disgust <= 0.002 : LM7 (17/45.571%)
+|   |   |   disgust >  0.002 : LM8 (63/10.555%)
+|   happy >  0.008 : 
+|   |   happy <= 0.432 : 
+|   |   |   surprise <= 0.002 : 
+|   |   |   |   sad <= 28.657 : LM9 (43/106.34%)
+|   |   |   |   sad >  28.657 : 
+|   |   |   |   |   surprise <= 0 : 
+|   |   |   |   |   |   fear <= 3.201 : LM10 (11/29.088%)
+|   |   |   |   |   |   fear >  3.201 : LM11 (5/75.876%)
+|   |   |   |   |   surprise >  0 : LM12 (58/27.583%)
+|   |   |   surprise >  0.002 : 
+|   |   |   |   happy <= 0.128 : 
+|   |   |   |   |   neutral <= 2.553 : 
+|   |   |   |   |   |   surprise <= 0.08 : LM13 (26/113.42%)
+|   |   |   |   |   |   surprise >  0.08 : LM14 (19/112.107%)
+|   |   |   |   |   neutral >  2.553 : LM15 (177/116.712%)
+|   |   |   |   happy >  0.128 : 
+|   |   |   |   |   happy <= 0.169 : 
+|   |   |   |   |   |   angry <= 5.411 : LM16 (6/109.951%)
+|   |   |   |   |   |   angry >  5.411 : LM17 (16/101.232%)
+|   |   |   |   |   happy >  0.169 : 
+|   |   |   |   |   |   angry <= 3.142 : 
+|   |   |   |   |   |   |   angry <= 0.624 : LM18 (5/14.583%)
+|   |   |   |   |   |   |   angry >  0.624 : LM19 (17/127.534%)
+|   |   |   |   |   |   angry >  3.142 : 
+|   |   |   |   |   |   |   happy <= 0.286 : 
+|   |   |   |   |   |   |   |   happy <= 0.219 : 
+|   |   |   |   |   |   |   |   |   happy <= 0.198 : LM20 (8/17.724%)
+|   |   |   |   |   |   |   |   |   happy >  0.198 : 
+|   |   |   |   |   |   |   |   |   |   neutral <= 70.986 : 
+|   |   |   |   |   |   |   |   |   |   |   angry <= 38.092 : LM21 (5/44.434%)
+|   |   |   |   |   |   |   |   |   |   |   angry >  38.092 : LM22 (2/31.167%)
+|   |   |   |   |   |   |   |   |   |   neutral >  70.986 : LM23 (2/1.64%)
+|   |   |   |   |   |   |   |   happy >  0.219 : LM24 (11/21.887%)
+|   |   |   |   |   |   |   happy >  0.286 : LM25 (32/141.004%)
+|   |   happy >  0.432 : 
+|   |   |   surprise <= 0.285 : LM26 (154/107.055%)
+|   |   |   surprise >  0.285 : 
+|   |   |   |   disgust <= 0.107 : LM27 (49/46.645%)
+|   |   |   |   disgust >  0.107 : LM28 (34/101.876%)
+
+LM num: 1
+score = 
+	0.0087 * fear 
+	+ 0.1439 * happy 
+	+ 0.0845 * surprise 
+	- 0.0035 * neutral 
+	+ 9.0907
+
+LM num: 2
+score = 
+	-0.0071 * fear 
+	+ 0.0913 * happy 
+	- 0.0277 * surprise 
+	- 152.9255 * neutral 
+	+ 8.1591
+
+LM num: 3
+score = 
+	0.1595 * fear 
+	+ 0.0913 * happy 
+	- 0.0335 * surprise 
+	- 266.0779 * neutral 
+	+ 11.0952
+
+LM num: 4
+score = 
+	0.2718 * fear 
+	- 2523.5877 * happy 
+	+ 1786.7465 * surprise 
+	- 0.0169 * neutral 
+	+ 18.5614
+
+LM num: 5
+score = 
+	-1.1252 * fear 
+	+ 0.1086 * happy 
+	- 0.0432 * surprise 
+	+ 3.395 * neutral 
+	- 28.1901
+
+LM num: 6
+score = 
+	0.0197 * fear 
+	+ 0.0567 * happy 
+	- 0.1973 * sad 
+	- 0.0244 * surprise 
+	- 0.0169 * neutral 
+	+ 19.6346
+
+LM num: 7
+score = 
+	0.5853 * angry 
+	+ 0.0407 * disgust 
+	+ 0.1295 * fear 
+	+ 0.0064 * happy 
+	+ 0.1177 * surprise 
+	- 0.0169 * neutral 
+	- 9.5191
+
+LM num: 8
+score = 
+	0.0167 * disgust 
+	+ 0.0197 * fear 
+	- 194.9452 * happy 
+	+ 0.0473 * sad 
+	+ 0.0007 * surprise 
+	- 0.0169 * neutral 
+	+ 4.401
+
+LM num: 9
+score = 
+	0.4763 * disgust 
+	+ 0.2289 * fear 
+	+ 62.5344 * happy 
+	+ 18.3342 * sad 
+	- 0.0717 * surprise 
+	- 1497.0437 * neutral 
+	+ 26.2467
+
+LM num: 10
+score = 
+	-0.1902 * angry 
+	+ 0.5607 * fear 
+	+ 0.0241 * happy 
+	+ 14.0628 * sad 
+	- 0.0453 * surprise 
+	- 975.9554 * neutral 
+	+ 25.9316
+
+LM num: 11
+score = 
+	0.7904 * angry 
+	+ 0.6764 * fear 
+	+ 0.0241 * happy 
+	+ 14.0628 * sad 
+	- 0.0453 * surprise 
+	- 975.9642 * neutral 
+	+ 27.3751
+
+LM num: 12
+score = 
+	0.3706 * angry 
+	+ 0.1749 * fear 
+	+ 0.0241 * happy 
+	+ 14.0628 * sad 
+	- 0.0453 * surprise 
+	- 975.6675 * neutral 
+	+ 11.3754
+
+LM num: 13
+score = 
+	0.1438 * fear 
+	+ 0.0587 * happy 
+	+ 5.2402 * sad 
+	- 0.1424 * surprise 
+	- 0.0861 * neutral 
+	+ 45.6691
+
+LM num: 14
+score = 
+	0.1438 * fear 
+	+ 0.0587 * happy 
+	+ 5.2579 * sad 
+	- 0.1825 * surprise 
+	- 0.0861 * neutral 
+	+ 27.5273
+
+LM num: 15
+score = 
+	0.0913 * fear 
+	+ 0.0331 * happy 
+	+ 5.1542 * sad 
+	+ 0.0259 * surprise 
+	- 0.0861 * neutral 
+	+ 25.6082
+
+LM num: 16
+score = 
+	0.5045 * angry 
+	+ 0.0885 * fear 
+	+ 0.0288 * happy 
+	+ 7.9348 * sad 
+	+ 0.0238 * surprise 
+	- 1.5023 * neutral 
+	+ 37.3843
+
+LM num: 17
+score = 
+	0.3418 * angry 
+	+ 0.0885 * fear 
+	+ 0.0288 * happy 
+	+ 7.9348 * sad 
+	+ 0.0238 * surprise 
+	- 1.5023 * neutral 
+	+ 47.7307
+
+LM num: 18
+score = 
+	-5.3505 * angry 
+	- 158.4826 * disgust 
+	+ 0.2653 * fear 
+	+ 0.0288 * happy 
+	+ 44.6862 * sad 
+	- 22.8944 * surprise 
+	- 2.0675 * neutral 
+	+ 66.7047
+
+LM num: 19
+score = 
+	-3.3441 * angry 
+	- 99.106 * disgust 
+	+ 0.3145 * fear 
+	+ 0.0288 * happy 
+	+ 44.6862 * sad 
+	- 24.4012 * surprise 
+	- 1.9538 * neutral 
+	+ 51.8916
+
+LM num: 20
+score = 
+	-0.1096 * angry 
+	- 0.1465 * disgust 
+	+ 0.2405 * fear 
+	+ 247.2254 * happy 
+	+ 58.6747 * sad 
+	- 0.2238 * surprise 
+	- 1.9681 * neutral 
+	- 7.0325
+
+LM num: 21
+score = 
+	-0.1933 * angry 
+	- 0.1465 * disgust 
+	+ 0.2405 * fear 
+	+ 236.9158 * happy 
+	+ 58.6747 * sad 
+	- 0.2238 * surprise 
+	- 2.0152 * neutral 
+	+ 2.2681
+
+LM num: 22
+score = 
+	-0.1973 * angry 
+	- 0.1465 * disgust 
+	+ 0.2405 * fear 
+	+ 236.9158 * happy 
+	+ 58.6747 * sad 
+	- 0.2238 * surprise 
+	- 2.0152 * neutral 
+	+ 2.1304
+
+LM num: 23
+score = 
+	-0.1896 * angry 
+	- 0.1465 * disgust 
+	+ 0.2405 * fear 
+	+ 236.9158 * happy 
+	+ 58.6747 * sad 
+	- 0.2238 * surprise 
+	- 2.0297 * neutral 
+	+ 1.7613
+
+LM num: 24
+score = 
+	-0.0983 * disgust 
+	+ 0.2405 * fear 
+	+ 38.4314 * happy 
+	+ 58.6747 * sad 
+	- 0.2238 * surprise 
+	- 1.9179 * neutral 
+	+ 25.7524
+
+LM num: 25
+score = 
+	-0.3312 * disgust 
+	+ 0.2405 * fear 
+	- 0.1859 * happy 
+	+ 55.8994 * sad 
+	- 0.2027 * surprise 
+	- 1.8567 * neutral 
+	+ 46.4198
+
+LM num: 26
+score = 
+	0.0981 * fear 
+	+ 0.0107 * happy 
+	+ 0.0108 * sad 
+	+ 0.2791 * surprise 
+	- 0.0358 * neutral 
+	+ 19.1501
+
+LM num: 27
+score = 
+	0.3115 * fear 
+	+ 0.0107 * happy 
+	+ 0.0185 * sad 
+	+ 0.0523 * surprise 
+	- 0.0358 * neutral 
+	+ 8.4021
+
+LM num: 28
+score = 
+	0.7773 * fear 
+	+ 0.0107 * happy 
+	+ 0.0185 * sad 
+	+ 0.0523 * surprise 
+	- 0.0358 * neutral 
+	+ 13.3352
+
+Number of Rules : 28
+
+Time taken to build model: 0.08 seconds
+
+=== Cross-validation ===
+=== Summary ===
+
+Correlation coefficient                 -0.0297
+Mean absolute error                  23474.6056
+Root mean squared error             233073.6476
+Relative absolute error             102160.5786 %
+Root relative squared error         764090.4704 %
+Total Number of Instances             1694     
+

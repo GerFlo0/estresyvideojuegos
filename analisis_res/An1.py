@@ -3,7 +3,6 @@ import sys
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
-import seaborn as sns
 
 # === FUNCIONES ===
 def mean_estress_per_game():
@@ -11,10 +10,22 @@ def mean_estress_per_game():
     promedio_score = df.groupby("game")["score"].mean()
     print(promedio_score)
 
-def emotions_score_correlation():
-    df = cargar_datos()
-    correlaciones = df[["score", "angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"]].corr()
+def emotions_score_correlation(): 
+    df = cargar_datos() 
+    correlaciones = df[["score", "angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"]].corr() 
     print(correlaciones["score"].sort_values(ascending=False))
+
+def emotions_score_correlation_by_game():
+    df = cargar_datos()
+    cols_emociones = ["angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"]
+    
+    juegos = df["game"].unique()  # obtener todos los juegos presentes
+    
+    for juego in juegos:
+        df_juego = df[df["game"] == juego]
+        correlaciones = df_juego[["score"] + cols_emociones].corr()
+        print(f"\n=== Correlaciones para {juego} ===")
+        print(correlaciones["score"].sort_values(ascending=False))
 
 def time_evolution_of_score_and_emotions_LOL():
     df = cargar_datos()
@@ -45,9 +56,6 @@ def time_evolution_of_score_and_emotions_LOL():
 
     # Acumular valores interpolados
     interp_matrix = []
-
-    # Plotear la sesión de referencia (línea negra gruesa)
-    plt.plot(ref_x, ref_scores_ref, label=f"Referencia id={ref_id} (más registros)", color="black", linewidth=2.5, zorder=3)
 
     # Procesar las demás sesiones
     for sid, group_df in groups:
@@ -113,9 +121,6 @@ def time_evolution_of_score_and_emotions_MINE():
     # Acumular valores interpolados
     interp_matrix = []
 
-    # Plotear la sesión de referencia (línea negra gruesa)
-    plt.plot(ref_x, ref_scores_ref, label=f"Referencia id={ref_id} (más registros)", color="black", linewidth=2.5, zorder=3)
-
     # Procesar las demás sesiones
     for sid, group_df in groups:
         g = group_df.reset_index(drop=True)
@@ -150,6 +155,148 @@ def time_evolution_of_score_and_emotions_MINE():
     plt.tight_layout()
     plt.show()
 
+def time_evolution_of_score_and_emotions_LOL_2():
+    df = cargar_datos()
+    GAME = "LOL"
+    df_lol = df[df["game"] == GAME].copy()
+    if df_lol.empty:
+        raise SystemExit(f"No se encontraron filas para el juego '{GAME}'.")
+
+    # Agrupar por voluntario (id)
+    groups = list(df_lol.groupby("id"))
+    if not groups:
+        raise SystemExit("No hay sesiones agrupadas por 'id' para LOL.")
+
+    # Elegir sesión de referencia: la que tenga más registros
+    ref_id, ref_df = max(groups, key=lambda t: len(t[1]))
+    ref_df = ref_df.reset_index(drop=True)
+
+    # Construir eje X de referencia por índice
+    ref_len = len(ref_df)
+    ref_x = np.arange(ref_len, dtype=float)
+    ref_scores_ref = ref_df["score"].to_numpy(dtype=float)
+
+    # Preparar figura
+    plt.figure(figsize=(12, 6))
+    plt.title(f"Evolución temporal de score (todas las sesiones de {GAME})")
+    plt.xlabel("Índice de medición (frame)")
+    plt.ylabel("Stress score")
+
+    # Acumular valores interpolados
+    interp_matrix = []
+
+    # Procesar las demás sesiones
+    for sid, group_df in groups:
+        g = group_df.reset_index(drop=True)
+        y = g["score"].to_numpy(dtype=float)
+        m = len(y)
+
+        if m == 0:
+            continue
+
+        # Mapear índices de esta sesión a los de referencia
+        mapped_x = np.linspace(ref_x[0], ref_x[-1], m)
+        y_on_ref = np.interp(ref_x, mapped_x, y)
+
+        interp_matrix.append(y_on_ref)
+
+        # Ploteo individual (transparente)
+        plt.plot(ref_x, y_on_ref, color="tab:blue", alpha=0.25, linewidth=0.8)
+
+    # Convertir a matriz
+    interp_matrix = np.vstack(interp_matrix)
+
+    # Calcular mediana y IQR
+    median_profile = np.median(interp_matrix, axis=0)
+    q1 = np.percentile(interp_matrix, 25, axis=0)
+    q3 = np.percentile(interp_matrix, 75, axis=0)
+    iqr = q3 - q1
+
+    # Limitar banda inferior a 0
+    lower_bound = np.maximum(median_profile - iqr, 0)
+    upper_bound = median_profile + iqr
+
+    # Plotear mediana y banda IQR
+    plt.plot(ref_x, median_profile, color="red", linewidth=2, label="Mediana general")
+    plt.fill_between(ref_x, lower_bound, upper_bound, color="red", alpha=0.15, label="Mediana ± IQR")
+
+    plt.legend()
+    plt.grid(alpha=0.25)
+    plt.tight_layout()
+    plt.show()
+
+
+def time_evolution_of_score_and_emotions_Mine_2():
+    df = cargar_datos()
+    GAME = "Mine"
+    df_lol = df[df["game"] == GAME].copy()
+    if df_lol.empty:
+        raise SystemExit(f"No se encontraron filas para el juego '{GAME}'.")
+
+    # Agrupar por voluntario (id)
+    groups = list(df_lol.groupby("id"))
+    if not groups:
+        raise SystemExit("No hay sesiones agrupadas por 'id' para LOL.")
+
+    # Elegir sesión de referencia: la que tenga más registros
+    ref_id, ref_df = max(groups, key=lambda t: len(t[1]))
+    ref_df = ref_df.reset_index(drop=True)
+
+    # Construir eje X de referencia por índice
+    ref_len = len(ref_df)
+    ref_x = np.arange(ref_len, dtype=float)
+    ref_scores_ref = ref_df["score"].to_numpy(dtype=float)
+
+    # Preparar figura
+    plt.figure(figsize=(12, 6))
+    plt.title(f"Evolución temporal de score (todas las sesiones de {GAME})")
+    plt.xlabel("Índice de medición (frame)")
+    plt.ylabel("Stress score")
+
+    # Acumular valores interpolados
+    interp_matrix = []
+
+    # Procesar las demás sesiones
+    for sid, group_df in groups:
+        g = group_df.reset_index(drop=True)
+        y = g["score"].to_numpy(dtype=float)
+        m = len(y)
+
+        if m == 0:
+            continue
+
+        # Mapear índices de esta sesión a los de referencia
+        mapped_x = np.linspace(ref_x[0], ref_x[-1], m)
+        y_on_ref = np.interp(ref_x, mapped_x, y)
+
+        interp_matrix.append(y_on_ref)
+
+        # Ploteo individual (transparente)
+        plt.plot(ref_x, y_on_ref, color="tab:blue", alpha=0.25, linewidth=0.8)
+
+    # Convertir a matriz
+    interp_matrix = np.vstack(interp_matrix)
+
+    # Calcular mediana y IQR
+    median_profile = np.median(interp_matrix, axis=0)
+    q1 = np.percentile(interp_matrix, 25, axis=0)
+    q3 = np.percentile(interp_matrix, 75, axis=0)
+    iqr = q3 - q1
+
+    # Limitar banda inferior a 0
+    lower_bound = np.maximum(median_profile - iqr, 0)
+    upper_bound = median_profile + iqr
+
+    # Plotear mediana y banda IQR
+    plt.plot(ref_x, median_profile, color="red", linewidth=2, label="Mediana general")
+    plt.fill_between(ref_x, lower_bound, upper_bound, color="red", alpha=0.15, label="Mediana ± IQR")
+
+    plt.legend()
+    plt.grid(alpha=0.25)
+    plt.tight_layout()
+    plt.show()
+
+
 def emotional_profile_vs_stress_per_volunteer():
     df = cargar_datos()
     cols_emociones = ["score", "angry", "disgust", "fear", "happy", "sad", "surprise", "neutral"]
@@ -164,7 +311,6 @@ def cargar_datos():
     except FileNotFoundError:
         print("Error: El archivo 'csvs/emotions/csv_unido.csv' no se encontró.")
         sys.exit(1)
-
 # === SELECTOR DE FUNCIONES DINÁMICO ===
 def obtener_funciones_disponibles():
     funciones = {

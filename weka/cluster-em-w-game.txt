@@ -1,0 +1,109 @@
+=== Run information ===
+
+Scheme:       weka.clusterers.EM -I 100 -N -1 -X 10 -max -1 -ll-cv 1.0E-6 -ll-iter 1.0E-6 -M 1.0E-6 -K 10 -num-slots 1 -S 100
+Relation:     csv_weka-weka.filters.unsupervised.attribute.Remove-R2,4
+Instances:    1694
+Attributes:   9
+              score
+              angry
+              disgust
+              fear
+              happy
+              sad
+              surprise
+              neutral
+Ignored:
+              game
+Test mode:    Classes to clusters evaluation on training data
+
+=== Clustering model (full training set) ===
+
+
+EM
+==
+
+Number of clusters selected by cross validation: 11
+Number of iterations performed: 26
+
+
+            Cluster
+Attribute         0       1       2       3       4       5       6       7       8       9      10
+             (0.09)  (0.15)  (0.04)  (0.07)  (0.07)   (0.2)  (0.17)  (0.04)  (0.06)  (0.04)  (0.08)
+====================================================================================================
+score
+  mean         1.229 13.3261 21.4352 31.6004  1.1157 40.4632  7.1758 16.6481 38.4217  2.1182 10.2432
+  std. dev.    2.424 22.9443 32.2206 35.0879  1.4067 39.7737 10.5616 27.9868 38.7319  3.9314  22.652
+
+angry
+  mean         1.773  7.5821 22.4227   7.786 38.9019 16.0567 21.3758  1.6313 33.4655  6.9764  0.3349
+  std. dev.   3.6056  8.5957 28.0903  8.6684 27.5234 20.0534 25.4265  3.9601 25.1415 12.5624  0.6028
+
+disgust
+  mean        0.0001       0 11.3181  0.1469  1.4959  0.0109  0.0017  0.0711 13.0027  0.0073       0
+  std. dev.   0.0003  0.0001 21.2082  0.3048  2.6388  0.0178  0.0027  0.2231 21.9187  0.0147       0
+
+fear
+  mean       15.4018  0.8337 21.8887 18.7682 15.0065 27.2159  4.1234  2.3539  23.214 62.0749  0.4494
+  std. dev.  19.7184  1.1513  28.081 24.4441  12.685 29.5502  4.9706  6.4386 27.4784 31.0879  1.0423
+
+happy
+  mean        6.3593  0.0041 10.6114  6.2898   0.129  0.1411  0.0248 87.7826   0.046  0.6352  0.5232
+  std. dev.   8.9931  0.0061 14.8601  9.9414  0.2941  0.1895  0.0359 11.8458  0.0786  0.8426  0.9728
+
+sad
+  mean        3.6806 56.4804  5.2751  20.858 35.0083 29.2633 44.5947  1.3737 23.4397  4.3038  1.2214
+  std. dev.   4.5944 28.4781  8.7919 21.6353  23.937 22.2699 25.8454  2.7068 22.7092  5.6027  2.1741
+
+surprise
+  mean         0.219  0.0002 12.2644  0.2762  0.1947  0.0224  0.0016  0.2742  0.0891 21.0439  0.0042
+  std. dev.   0.4821  0.0003 22.3776  0.4727  0.4043  0.0359  0.0023  0.7917   0.146 29.7378  0.0097
+
+neutral
+  mean       72.5662 35.0996 16.2196  45.875  9.2636 27.2899  29.878  6.5132  6.7429  4.9586 97.4668
+  std. dev.  21.4944  27.563 24.1251 26.5322  9.2589 26.7938 24.8903  8.4906  8.7919  7.7725  2.7432
+
+
+
+Time taken to build model (full training data) : 17.76 seconds
+
+=== Model and evaluation on training set ===
+
+Clustered Instances
+
+ 0       146 (  9%)
+ 1       261 ( 15%)
+ 2        61 (  4%)
+ 3       120 (  7%)
+ 4       116 (  7%)
+ 5       345 ( 20%)
+ 6       283 ( 17%)
+ 7        60 (  4%)
+ 8       104 (  6%)
+ 9        70 (  4%)
+10       128 (  8%)
+
+
+Log likelihood: -16.53441
+
+
+Class attribute: game
+Classes to Clusters:
+
+   0   1   2   3   4   5   6   7   8   9  10  <-- assigned to cluster
+  56 108  33  68  49 180 103  43  49  27  41 | LOL
+  90 153  28  52  67 165 180  17  55  43  87 | Mine
+
+Cluster  0 <-- No class
+Cluster  1 <-- No class
+Cluster  2 <-- No class
+Cluster  3 <-- No class
+Cluster  4 <-- No class
+Cluster  5 <-- LOL
+Cluster  6 <-- Mine
+Cluster  7 <-- No class
+Cluster  8 <-- No class
+Cluster  9 <-- No class
+Cluster 10 <-- No class
+
+Incorrectly clustered instances :	1334.0	 78.7485 %
+
